@@ -16,3 +16,22 @@ export default (username) => {
 // export default function (username) {
 //     console.log(username);
 // }
+
+//deconstruct section BEGIN
+const [firstName, lastName] = ["John", "Doe"];
+
+// const firstName = usernameData[0];
+// const lastName = usernameData[1];
+
+console.log(firstName)
+console.log(lastName)
+
+const { name, age } = {
+    name: "John",
+    age: 34
+}
+
+console.log(name)
+console.log(age)
+
+//deconstruct section END
