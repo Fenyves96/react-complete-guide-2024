@@ -35,3 +35,13 @@ console.log(name)
 console.log(age)
 
 //deconstruct section END
+
+// spread operator BEGIN
+const hobbies = ["Sports", "Cooking"];
+
+const newHobbies = ["Reading"];
+
+const mergeHobbies = [...hobbies, ...newHobbies];
+console.log(mergeHobbies);
+
+// spread operator END
