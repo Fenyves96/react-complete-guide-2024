@@ -8,3 +8,11 @@ console.log(util.apiKey2);
 console.log(util.default);
 
 console.log(content);
+
+export default (username) => {
+    console.log(username);
+}
+
+// export default function (username) {
+//     console.log(username);
+// }
