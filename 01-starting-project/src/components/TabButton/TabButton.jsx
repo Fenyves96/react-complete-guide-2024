@@ -1,8 +1,4 @@
-export default function TabButton({ children }) {
-  function handleClick() {
-    console.log("HEllo word");
-  }
-
+export default function TabButton({ children, handleClick }) {
   return (
     <li>
       <button onClick={handleClick}>{children}</button>
