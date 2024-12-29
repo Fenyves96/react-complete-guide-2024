@@ -21,3 +21,7 @@ These files declare a react **Component**. (ex: App.JSX)
 
 If you inspect the html you will see only one specific index.jsx, this is the build code.
 ReactDOM library render our components. ReactDOM has a createRoot method with an entryPoint parameter. If you make a react project it will be a div with root id.
+
+### children built in keyword
+
+If your component function accept a `{children}` parameter React will know that these are children. (ex: `<TabButton>some text</TabButton>`)
