@@ -1,7 +1,7 @@
 import reactImg from "./assets/react-core-concepts.png";
 import componentsImg from "./assets/components.png";
-import Header from "./components/Header.jsx";
-import CoreConcept from "./components/CoreConcept.jsx";
+import Header from "./components/Header/Header.jsx";
+import CoreConcept from "./components/CoreConcepts/CoreConcept.jsx";
 import { CORE_CONCEPTS } from "./data";
 
 function App() {
