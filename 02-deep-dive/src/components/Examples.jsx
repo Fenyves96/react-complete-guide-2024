@@ -59,7 +59,8 @@ export default function Examples() {
   return (
     //html properties are not forwarded automatically -> proxy props
     <Section title={'Examples'} id="examples">
-      <Tabs buttons={buttons}>{tabContent}
+      <Tabs buttons={buttons}
+      ButtonsContainer="menu">{tabContent}
       </Tabs>
 
     </Section>

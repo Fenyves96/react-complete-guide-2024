@@ -1,9 +1,10 @@
-export default function Tabs({ children, buttons }) {
+export default function Tabs({ children, buttons, ButtonsContainer }) {
+    //const ButtonsContainer = buttonsContainer; //react will recognize wheter it is a component or a string
     return(
     <>
-    <menu>
+    <ButtonsContainer>
         {buttons}
-    </menu>
+    </ButtonsContainer>
     {children}
     </>
     );
