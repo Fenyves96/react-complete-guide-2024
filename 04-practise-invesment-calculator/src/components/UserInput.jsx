@@ -1,29 +1,17 @@
-import { useState } from "react";
-
 export default function UserInput({
-  defaultInitialInvesment,
-  defaultAnnualInvesment,
-  defaultExpectedReturn,
-  defaultDuration,
-  onChangeValues
+  userInput,
+  onChangeValue
 }) {
-  const [initialInvesment, setInitialInvesment] = useState(
-    defaultInitialInvesment
-  );
-  const [annualInvesment, setAnnualInvesment] = useState(
-    defaultAnnualInvesment
-  );
-  const [expectedReturn, setExpectedReturn] = useState(defaultExpectedReturn);
-  const [duration, setDuration] = useState(defaultDuration);
   return (
     <section id="user-input">
       <div className="input-group">
         <p>
           <label>Initial Investment</label>
           <input type="number"
-            value={initialInvesment}
-            onChange={(event) => {setInitialInvesment(event.target.valueAsNumber)
-                onChangeValues(event.target.valueAsNumber, annualInvesment, expectedReturn, duration);
+            required
+            value={userInput.initialInvestment}
+            onChange={(event) => {
+                onChangeValue('initialInvestment', event.target.valueAsNumber);
             }}
           />
         </p>
@@ -31,10 +19,11 @@ export default function UserInput({
           <label>Annual Investment</label>
           <input
           type="number"
-            value={annualInvesment}
-            onChange={(event) => {setAnnualInvesment(event.target.valueAsNumber)
-                onChangeValues(initialInvesment, event.target.valueAsNumber, expectedReturn, duration)}
-            }
+          required
+          value={userInput.annualInvestment}
+          onChange={(event) => {
+              onChangeValue('annualInvestment', event.target.valueAsNumber);
+          }}
           />
         </p>
       </div>
@@ -43,23 +32,25 @@ export default function UserInput({
           <label>expectedReturn</label>
           <input
            type="number"
-            value={expectedReturn}
-            onChange={(event) => {setExpectedReturn(event.target.valueAsNumber)
-                onChangeValues(initialInvesment, annualInvesment , event.target.valueAsNumber, duration)}
-            }
+           required
+           value={userInput.expectedReturn}
+           onChange={(event) => {
+               onChangeValue('expectedReturn', event.target.valueAsNumber);
+           }}
           />
         </p>
         <p>
           <label>Duration</label>
           <input
            type="number"
-            value={duration}
-            onChange={(event) => {setDuration(event.target.valueAsNumber)
-                onChangeValues(initialInvesment, annualInvesment, expectedReturn, event.target.valueAsNumber)}
-            }
+           required
+           value={userInput.duration}
+           onChange={(event) => {
+               onChangeValue('duration', event.target.valueAsNumber);
+           }}
           />
         </p>
       </div>
-    </section>
+    </section>  
   );
 }
