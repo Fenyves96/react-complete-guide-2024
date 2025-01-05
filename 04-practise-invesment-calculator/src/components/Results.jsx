@@ -3,9 +3,8 @@ export default function Results({ annualData, initialInvestment, annualInvestmen
 
 
     return (
-        <section id="results">
-            <h2>Results</h2>
-            <table>
+        
+            <table id="result">
                 <thead>
                     <tr>
                         <th>Year</th>
@@ -28,6 +27,5 @@ export default function Results({ annualData, initialInvestment, annualInvestmen
                     ))}
                 </tbody>
             </table>    
-        </section>
     );
 }   
