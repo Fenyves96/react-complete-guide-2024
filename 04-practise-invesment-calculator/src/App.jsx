@@ -23,17 +23,33 @@ function App() {
     })
   }
 
-  let currentAnnualData = calculateInvestmentResults({
-    ...userInput
-  });
+  let result
 
-  for(let i = 0; i < currentAnnualData.length; i++) {
-    if(i === 0) 
-      currentAnnualData[i].totalInterest = currentAnnualData[i].interest;
-    else
-    currentAnnualData[i].totalInterest = currentAnnualData[i].interest + currentAnnualData[i-1].interest;
-    currentAnnualData[i].investedCapital = userInput.initialInvestment + userInput.annualInvestment * (i + 1);
-}
+  if(!userInput.initialInvestment || !userInput.expectedReturn || !userInput.duration) {
+    result = <p className="center">Please enter all values.</p>;
+  }
+
+  else if(userInput.initialInvestment <= 0 || userInput.expectedReturn <= 0 || userInput.duration <= 0) {
+    result = <p className="center">Please enter positive values.</p>;
+  }
+
+  else{
+    let currentAnnualData = calculateInvestmentResults({
+      ...userInput
+    });
+  
+    for(let i = 0; i < currentAnnualData.length; i++) {
+      if(i === 0) 
+        currentAnnualData[i].totalInterest = currentAnnualData[i].interest;
+      else
+      currentAnnualData[i].totalInterest = currentAnnualData[i].interest + currentAnnualData[i-1].interest;
+      currentAnnualData[i].investedCapital = userInput.initialInvestment + userInput.annualInvestment * (i + 1);
+    }
+  
+    result = <Results annualData={currentAnnualData}/>;
+  }
+
+  
 
   return (
     <>
@@ -42,7 +58,7 @@ function App() {
         userInput={userInput}
         onChangeValue={onChangeValue}
       />
-      <Results annualData={currentAnnualData}/>
+      {result}
     </>
   );
 }
