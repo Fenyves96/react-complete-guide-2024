@@ -1,39 +1,30 @@
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
 
-export default function GameBoard({onSelectSquare, turns}) {
-let gameBoard = initialGameBoard;
 
-for(const turn of turns){
-  const {square, player} = turn;
-  const {row, col} = square;
+export default function GameBoard({ onSelectSquare, board }) {
 
-  gameBoard[row][col] = player;
-}
 
-//   const [gameBoard, setGameBoard] = useState(initialGameBoard);
+  //   const [gameBoard, setGameBoard] = useState(initialGameBoard);
 
-//   function handleSelectSquare(rowIndex, colIndex){
-//     setGameBoard((prevGameBoard) => {
-//         const updatedBoard = [...prevGameBoard.map(innerArray => [...innerArray])]; //deep copy need beacuse immutability
-//         updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
-//         return updatedBoard;
-//     });
+  //   function handleSelectSquare(rowIndex, colIndex){
+  //     setGameBoard((prevGameBoard) => {
+  //         const updatedBoard = [...prevGameBoard.map(innerArray => [...innerArray])]; //deep copy need beacuse immutability
+  //         updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
+  //         return updatedBoard;
+  //     });
 
-//     onSelectSquare();
-//   }
+  //     onSelectSquare();
+  //   }
 
   return (
     <ol id="game-board">
-      {gameBoard.map((row, rowIndex) => (
+      {board.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {row.map((playerSymbol, colIndex) => (
               <li key={colIndex}>
-                <button onClick={() => onSelectSquare(rowIndex, colIndex) }>{playerSymbol}</button>
+                <button onClick={() => onSelectSquare(rowIndex, colIndex)} disabled = {playerSymbol !==null}>
+                  {playerSymbol}
+                </button>
               </li>
             ))}
           </ol>
