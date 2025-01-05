@@ -1,5 +1,5 @@
 import { formatter } from "../util/investment";
-export default function Results({ annualData, initialInvestment, annualInvestment }) {
+export default function Results({ annualData}) {
 
 
     return (
